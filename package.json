@@ -1,0 +1,18 @@
+{
+  "name": "opencode-zellij-renamer",
+  "version": "1.0.0",
+  "description": "OpenCode plugin that renames the Zellij session based on your first message",
+  "keywords": ["opencode", "opencode-plugin", "zellij"],
+  "license": "ISC",
+  "author": "eric",
+  "type": "module",
+  "exports": "./index.ts",
+  "main": "./index.ts",
+  "files": ["index.ts"],
+  "dependencies": {
+    "@opencode-ai/plugin": "^1.18.29"
+  },
+  "devDependencies": {
+    "@types/node": "^26.5.0"
+  }
+}
