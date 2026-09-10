@@ -1,15 +1,21 @@
 {
   "name": "opencode-zellij-renamer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "OpenCode plugin that renames the Zellij session based on your first message",
-  "keywords": ["opencode", "opencode-plugin", "zellij"],
-  "repository": "github:EpicEric/opencode-zellij-renamer",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "zellij"
+  ],
   "license": "AGPL-3.0-or-later",
   "author": "Eric Rodrigues Pires <eric@eric.dev.br>",
+  "repository": "github:EpicEric/opencode-zellij-renamer",
+  "files": [
+    "index.ts"
+  ],
   "type": "module",
-  "exports": "./index.ts",
   "main": "./index.ts",
-  "files": ["index.ts"],
+  "exports": "./index.ts",
   "dependencies": {
     "@opencode-ai/plugin": "^1.18.29"
   },

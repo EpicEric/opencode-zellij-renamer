@@ -118,14 +118,23 @@ export const ZellijRenamerPlugin: Plugin = async ({ client, $ }) => {
     return sanitize(arrow >= 0 ? last.slice(arrow + 1) : last);
   };
 
+  const smallModel = async () => {
+    const config = await client.config.get().catch(() => undefined);
+    const [providerID, ...rest] = config?.data?.small_model?.split("/") ?? [];
+    if (!providerID || rest.length === 0) return undefined;
+    return { providerID, modelID: rest.join("/") };
+  };
+
   const generate = async (
     sessionID: string,
     text: string,
-    model?: { providerID: string; modelID: string },
+    currentModel?: { providerID: string; modelID: string },
   ) => {
     const history = await client.session.messages({ path: { id: sessionID } });
     const userCount = history.data?.filter((m) => m.info.role === "user").length ?? 0;
     if (userCount > 1) return;
+
+    const model = (await smallModel()) ?? currentModel;
 
     const created = await client.session.create({ body: { title: "zellij-renamer" } });
     const titleSessionID = created.data?.id;
